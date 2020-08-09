@@ -1,14 +1,21 @@
 package cn.huanzi.qch.baseadmin.sys.sysusermenu.pojo;
 
-import cn.huanzi.qch.baseadmin.sys.sysmenu.pojo.SysMenu;
-import cn.huanzi.qch.baseadmin.sys.sysuser.pojo.SysUser;
-import lombok.Data;
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 
-import javax.persistence.*;
-import java.io.Serializable;
-import java.util.Date;
+import cn.huanzi.qch.baseadmin.sys.sysmenu.pojo.SysMenu;
+import cn.huanzi.qch.baseadmin.sys.sysuser.pojo.SysUser;
+import lombok.Data;
 
 @Entity
 @Table(name = "sys_user_menu")
@@ -21,8 +28,10 @@ public class SysUserMenu implements Serializable {
 
     private String menuId;//菜单id
 
+    @Column(nullable = false)
     private Date createTime;//创建时间
 
+    @Column(nullable = false)
     private Date updateTime;//修改时间
 
     @OneToOne

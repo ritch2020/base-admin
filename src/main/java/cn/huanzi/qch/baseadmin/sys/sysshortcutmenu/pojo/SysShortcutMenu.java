@@ -1,9 +1,14 @@
 package cn.huanzi.qch.baseadmin.sys.sysshortcutmenu.pojo;
 
-import lombok.Data;
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.Data;
 
 @Entity
 @Table(name = "sys_shortcut_menu")
@@ -20,8 +25,10 @@ public class SysShortcutMenu implements Serializable {
 
     private String shortcutMenuParentId;//上级id
 
+    @Column(nullable = false)
     private Date createTime;//创建时间
 
+    @Column(nullable = false)
     private Date updateTime;//修改时间
 
 }

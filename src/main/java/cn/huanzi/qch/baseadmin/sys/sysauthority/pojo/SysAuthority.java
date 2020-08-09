@@ -1,9 +1,14 @@
 package cn.huanzi.qch.baseadmin.sys.sysauthority.pojo;
 
-import lombok.Data;
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.Data;
 
 @Entity
 @Table(name = "sys_authority")
@@ -18,8 +23,10 @@ public class SysAuthority implements Serializable {
 
     private String authorityRemark;//权限描述
 
+    @Column(nullable = false)
     private Date createTime;//创建时间
 
+    @Column(nullable = false)
     private Date updateTime;//修改时间
 
 }

@@ -1,12 +1,14 @@
 package cn.huanzi.qch.baseadmin.sys.sysmenu.pojo;
 
-import lombok.Data;
+import java.io.Serializable;
+import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.io.Serializable;
-import java.util.Date;
+
+import lombok.Data;
 
 @Entity
 @Table(name = "sys_menu")
@@ -21,8 +23,10 @@ public class SysMenu implements Serializable {
 
     private String menuParentId;//上级id
 
+    @Column(nullable = false)
     private Date createTime;//创建时间
 
+    @Column(nullable = false)
     private Date updateTime;//修改时间
 
 }

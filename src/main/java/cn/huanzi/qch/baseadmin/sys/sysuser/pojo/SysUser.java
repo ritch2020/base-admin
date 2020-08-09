@@ -1,13 +1,15 @@
 package cn.huanzi.qch.baseadmin.sys.sysuser.pojo;
 
-import cn.huanzi.qch.baseadmin.annotation.Like;
-import lombok.Data;
+import java.io.Serializable;
+import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.io.Serializable;
-import java.util.Date;
+
+import cn.huanzi.qch.baseadmin.annotation.Like;
+import lombok.Data;
 
 @Entity
 @Table(name = "sys_user")
@@ -33,8 +35,10 @@ public class SysUser implements Serializable {
 
     private String limitMultiLogin;//是否允许账号同一个时刻多人在线，Y/N
 
+    @Column(nullable = false)
     private Date createTime;//创建时间
 
+    @Column(nullable = false)
     private Date updateTime;//修改时间
 
 }

@@ -1,15 +1,16 @@
 package cn.huanzi.qch.baseadmin;
 
-import cn.huanzi.qch.baseadmin.sys.sysmenu.vo.SysMenuVo;
-import cn.huanzi.qch.baseadmin.sys.syssetting.service.SysSettingService;
-import cn.huanzi.qch.baseadmin.sys.syssetting.vo.SysSettingVo;
-import cn.huanzi.qch.baseadmin.sys.sysshortcutmenu.service.SysShortcutMenuService;
-import cn.huanzi.qch.baseadmin.sys.sysshortcutmenu.vo.SysShortcutMenuVo;
-import cn.huanzi.qch.baseadmin.sys.sysuser.service.SysUserService;
-import cn.huanzi.qch.baseadmin.sys.sysuser.vo.SysUserVo;
-import cn.huanzi.qch.baseadmin.sys.sysusermenu.service.SysUserMenuService;
-import cn.huanzi.qch.baseadmin.util.*;
-import lombok.extern.slf4j.Slf4j;
+import java.awt.Color;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.List;
+
+import javax.imageio.ImageIO;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationRunner;
@@ -25,18 +26,24 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.imageio.ImageIO;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.util.List;
+import cn.huanzi.qch.baseadmin.sys.sysmenu.vo.SysMenuVo;
+import cn.huanzi.qch.baseadmin.sys.syssetting.service.SysSettingService;
+import cn.huanzi.qch.baseadmin.sys.syssetting.vo.SysSettingVo;
+import cn.huanzi.qch.baseadmin.sys.sysshortcutmenu.service.SysShortcutMenuService;
+import cn.huanzi.qch.baseadmin.sys.sysshortcutmenu.vo.SysShortcutMenuVo;
+import cn.huanzi.qch.baseadmin.sys.sysuser.service.SysUserService;
+import cn.huanzi.qch.baseadmin.sys.sysuser.vo.SysUserVo;
+import cn.huanzi.qch.baseadmin.sys.sysusermenu.service.SysUserMenuService;
+import cn.huanzi.qch.baseadmin.util.ErrorUtil;
+import cn.huanzi.qch.baseadmin.util.RsaUtil;
+import cn.huanzi.qch.baseadmin.util.SecurityUtil;
+import cn.huanzi.qch.baseadmin.util.SysSettingUtil;
+import cn.huanzi.qch.baseadmin.util.VerifyCodeImageUtil;
+import lombok.extern.slf4j.Slf4j;
 
 @EnableAsync//开启异步调用
 @SpringBootApplication
+// @EnableJpaAuditing
 public class BaseAdminApplication {
 
     public static void main(String[] args) {

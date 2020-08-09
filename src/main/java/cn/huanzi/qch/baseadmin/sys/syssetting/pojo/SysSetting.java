@@ -1,9 +1,14 @@
 package cn.huanzi.qch.baseadmin.sys.syssetting.pojo;
 
-import lombok.Data;
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.Table;
+
+import lombok.Data;
 
 @Entity
 @Table(name = "sys_setting")
@@ -20,6 +25,7 @@ public class SysSetting implements Serializable {
 
     private String sysColor;//系统颜色
 
+    @Lob
     private String sysNoticeText;//系统公告
 
     private String sysApiEncrypt;//API加密 Y/N
